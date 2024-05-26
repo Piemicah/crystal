@@ -1,0 +1,33 @@
+@import "../../style.scss";
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .heading {
+    color: $blue;
+    @include lato-font(96px, 600);
+  }
+  .question {
+    @include lato-font(16px, 400);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 2rem;
+    max-width: 300px;
+
+    margin: 2rem 0 12rem 0;
+
+    input {
+      padding: 0.2rem 1rem;
+    }
+
+    button {
+      @include btn-blue;
+    }
+  }
+}

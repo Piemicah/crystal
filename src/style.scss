@@ -1,0 +1,38 @@
+@mixin lato-font($size, $weight) {
+  font-family: "Lato", sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+}
+
+$blue: #403e95;
+
+$background1: linear-gradient(
+  92.15deg,
+  #403e95 0%,
+  #463d91 42.59%,
+  #a13459 100%
+);
+
+$background2: linear-gradient(
+  191.79deg,
+  #403e95 12.62%,
+  #433e93 59.87%,
+  #a13459 93.26%
+);
+
+@mixin btn-blue {
+  width: 116px;
+  height: 48px;
+  border: none;
+  padding: 12px 24px 12px 24px;
+  border-radius: 8px;
+  background: $blue;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+
+  -webkit-box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.47);
+  -moz-box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.47);
+  box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.47);
+}

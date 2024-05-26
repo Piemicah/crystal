@@ -1,0 +1,46 @@
+@import "../../style.scss";
+
+.navbar {
+  background: #f3f3f3;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  position: sticky;
+
+  height: 84px;
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    .desktop-link-item {
+      text-decoration: none;
+      color: #444444;
+      font-family: "Alata", sans-serif;
+      font-size: 21px;
+      font-weight: 400;
+    }
+
+    :hover,
+    :focus {
+      transition: 300ms ease-in;
+      color: $blue;
+    }
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .right {
+    .sign-btn {
+      @include btn-blue;
+    }
+  }
+}

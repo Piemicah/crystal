@@ -1,0 +1,23 @@
+@import "../../style.scss";
+
+.service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+
+  .heading {
+    color: $blue;
+    @include lato-font(96px, 600);
+  }
+
+  .box {
+    width: 737px;
+    background: #f6f7fb;
+    border-radius: 24px;
+    color: #0e0e2c;
+    @include lato-font(60px, 600);
+    margin-bottom: 6rem;
+  }
+}

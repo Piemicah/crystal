@@ -1,0 +1,59 @@
+@import "../../style.scss";
+
+.foot {
+  height: 660px;
+  background: $background2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  @include lato-font(16px, 600);
+  .upper-box {
+    display: flex;
+    justify-content: space-around;
+    height: 346px;
+
+    img {
+      width: 299px;
+      height: 199px;
+    }
+    .text-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: left;
+
+      p {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .lower-box {
+    display: flex;
+    flex-direction: column;
+    //justify-content: start;
+
+    .social-box {
+      display: flex;
+      //width: 10%;
+      justify-content: start;
+      gap: 2rem;
+      margin-left: 8rem;
+      margin-top: 2rem;
+
+      img {
+        height: 24px;
+        //width: 24px;
+      }
+    }
+
+    .text-box {
+      display: flex;
+      flex-direction: column;
+      //width: 40%;
+      align-items: start;
+      margin-left: 8rem;
+    }
+  }
+}
