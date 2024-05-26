@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/crystal/static/css/main.fd0022ac.css",
+    "main.js": "/crystal/static/js/main.52c9f8c0.js",
+    "static/media/logoCrystal.png": "/crystal/static/media/logoCrystal.7c5c581d5e65c5541727.png",
+    "static/media/backImg.jpg": "/crystal/static/media/backImg.91ea78a1286452c81122.jpg",
+    "index.html": "/crystal/index.html",
+    "main.fd0022ac.css.map": "/crystal/static/css/main.fd0022ac.css.map",
+    "main.52c9f8c0.js.map": "/crystal/static/js/main.52c9f8c0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fd0022ac.css",
+    "static/js/main.52c9f8c0.js"
+  ]
+}
