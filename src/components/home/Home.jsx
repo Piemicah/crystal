@@ -20,11 +20,17 @@ const Home = () => {
           </div>
           <div>
             <div className="big-text">40+</div>
-            <div className="small-text">Nigerian Universities</div>
+            <div className="small-text">
+              Nigerian
+              <br /> Universities
+            </div>
           </div>
           <div>
             <div className="big-text">40+</div>
-            <div className="small-text">Foreign Universities</div>
+            <div className="small-text">
+              Foreign
+              <br /> Universities
+            </div>
           </div>
         </div>
       </div>
@@ -36,15 +42,16 @@ const Home = () => {
         </div>
         <div className="lower-text">
           <div className="big-text">Sciences</div>
-          <div className="big-text">Social Sciences</div>
+          <div className="big-text">
+            Social
+            <br /> Sciences
+          </div>
           <div className="big-text">Arts</div>
         </div>
       </div>
 
-      <div className="last-box">
-        <div className="white-box">
-          <div className="font-cl">Determination and hardwork</div>
-        </div>
+      <div className="white-box">
+        <div className="font-cl">Determination and hardwork</div>
       </div>
     </div>
   );

@@ -4,6 +4,12 @@
   font-weight: $weight;
 }
 
+@mixin mont-font($size, $weight) {
+  font-family: "Montserrat", sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+}
+
 $blue: #403e95;
 
 $background1: linear-gradient(
@@ -21,18 +27,24 @@ $background2: linear-gradient(
 );
 
 @mixin btn-blue {
-  width: 116px;
-  height: 48px;
+  width: 7.25rem;
+  height: 3rem;
   border: none;
-  padding: 12px 24px 12px 24px;
-  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
   background: $blue;
   color: white;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   cursor: pointer;
 
-  -webkit-box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.47);
-  -moz-box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.47);
-  box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.47);
+  -webkit-box-shadow: 0.125rem 0.1875rem 0.3125rem 0px rgba(0, 0, 0, 0.47);
+  -moz-box-shadow: 0.125rem 0.1875rem 0.3125rem 0px rgba(0, 0, 0, 0.47);
+  box-shadow: 0.125rem 0.1875rem 0.3125rem 0px rgba(0, 0, 0, 0.47);
+}
+
+@mixin mobile {
+  @media (max-width: 480px) {
+    @content;
+  }
 }

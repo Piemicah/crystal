@@ -1,0 +1,45 @@
+@import "../../style.scss";
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+
+  margin-bottom: 4rem;
+  margin-top: 3rem;
+
+  .heading {
+    @include lato-font(3.75rem, 700);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      @include mont-font(1.5rem, 500);
+      width: 35rem;
+
+      input {
+        @include mont-font(1.5rem, 500);
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        border: 1px solid black;
+      }
+    }
+    button {
+      @include mont-font(1.5rem, 700);
+      background: $background1;
+      border: none;
+      padding: 0.85rem;
+      border-radius: 0.5rem;
+      color: white;
+      margin-top: 1.6rem;
+    }
+  }
+}

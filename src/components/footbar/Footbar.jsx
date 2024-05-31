@@ -13,20 +13,22 @@ const Footbar = () => {
         <div className="img-box">
           <img src={logo} alt="" />
         </div>
-        <div className="text-box">
-          <p>Company</p>
-          <p>About Us</p>
-          <p>Contact and Help</p>
-          <p>Careers</p>
-        </div>
-        <div className="text-box">
-          <p>FAQ</p>
-          <p>Blog</p>
-          <p>News Room</p>
-          <p>Privacy Policy</p>
-        </div>
-        <div className="text-box">
-          <p>English</p>
+        <div className="text-box-container">
+          <div className="text-box">
+            <p>Company</p>
+            <p>About Us</p>
+            <p>Contact and Help</p>
+            <p>Careers</p>
+          </div>
+          <div className="text-box">
+            <p>FAQ</p>
+            <p>Blog</p>
+            <p>News Room</p>
+            <p>Privacy Policy</p>
+          </div>
+          <div className="text-box" id="eng">
+            <p>English</p>
+          </div>
         </div>
       </div>
       <div className="lower-box">
@@ -40,8 +42,9 @@ const Footbar = () => {
           <p>
             Crystal switch is not affiliated to or endorsed by any
             school,college or university.
+            <br />
+            Copyright © 2024 07033387603, 08161657004
           </p>
-          <p>Copyright © 2024 07033387603, 08161657004</p>
         </div>
       </div>
     </div>

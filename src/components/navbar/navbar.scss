@@ -11,7 +11,7 @@
   padding: 0 2rem;
   position: sticky;
 
-  height: 84px;
+  height: 5.25rem;
 
   .left {
     display: flex;
@@ -22,8 +22,11 @@
       text-decoration: none;
       color: #444444;
       font-family: "Alata", sans-serif;
-      font-size: 21px;
+      font-size: 1.32rem;
       font-weight: 400;
+      @include mobile {
+        display: none;
+      }
     }
 
     :hover,
@@ -33,14 +36,46 @@
     }
 
     img {
-      width: 24px;
-      height: 24px;
+      width: 1.5rem;
+      height: 1.5rem;
     }
   }
 
   .right {
     .sign-btn {
       @include btn-blue;
+
+      @include mobile {
+        display: none;
+      }
+    }
+  }
+
+  //menu items
+  .menu-container {
+    position: absolute;
+    left: 1.6rem;
+    top: 2rem;
+    display: none;
+
+    @include mobile {
+      display: flex;
+    }
+
+    flex-direction: column;
+
+    img {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    .menu-link-item {
+      text-decoration: none;
+      color: #444444;
+      @include lato-font(1.2rem, 400);
+      background: #f3f3f3;
+      text-align: center;
+      padding: 2rem 3rem;
     }
   }
 }

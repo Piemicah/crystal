@@ -24,15 +24,26 @@
     background: #fffffff2;
     align-items: center;
     justify-content: space-around;
-    height: 350px;
+    height: 21.875rem;
     margin: 0 10rem;
+    //width: 80vw;
     color: #444444;
-    border-radius: 24px;
+    border-radius: 1.5rem;
+
+    @include mobile {
+      margin: 0 1.5rem;
+      padding: 1rem 0;
+    }
+
     .top-text {
-      @include lato-font(96px, 600);
+      @include lato-font(6rem, 600);
+
+      @include mobile {
+        @include lato-font(3.75rem, 600);
+      }
     }
     .mid-text {
-      @include lato-font(16px, 400);
+      @include lato-font(1rem, 400);
     }
 
     .inner-box {
@@ -43,13 +54,19 @@
 
       background: $background1;
 
-      height: 72px;
-      width: 372px;
-      border-radius: 8px;
-      font-family: "Montserrat", sans-serif;
-      font-weight: 700;
-      font-size: 24px;
+      height: 4.5rem;
+      width: 23.25rem;
+      border-radius: 0.5rem;
+      @include mont-font(1.5rem, 700);
       color: #ffff;
+      @include mobile {
+        @include mont-font(1rem, 700);
+        width: 70vw;
+      }
+
+      .mid-text {
+        @include lato-font(1rem, 700);
+      }
     }
   }
 
@@ -57,15 +74,25 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+
     background: $background1;
-    height: 426px;
+    gap: 4rem;
     margin: 0 10rem;
     color: #fff;
-    border-radius: 24px;
+    border-radius: 1.5rem;
+    padding: 2rem 0;
+
+    @include mobile {
+      margin: 0 1.5rem;
+      padding: 1rem 0;
+    }
 
     .upper-text {
-      @include lato-font(60px, 400);
+      @include lato-font(3.75rem, 400);
+      width: 45vw;
+      @include mobile {
+        @include lato-font(3rem, 400);
+      }
     }
 
     .lower-text {
@@ -74,11 +101,16 @@
       //align-items: center;
       //align-content: space-around;
 
+      @include mobile {
+        flex-direction: column;
+        gap: 4rem;
+      }
+
       .big-text {
-        @include lato-font(60px, 600);
+        @include lato-font(3.75rem, 600);
       }
       .small-text {
-        @include lato-font(16px, 400);
+        @include lato-font(1rem, 400);
       }
     }
   }
@@ -90,42 +122,57 @@
     justify-content: space-around;
     color: #fff;
     background: $background1;
-    height: 350px;
+    gap: 2rem;
     margin: 0 10rem;
-    border-radius: 24px;
+    border-radius: 1.5rem;
+    padding: 2rem;
+
+    @include mobile {
+      margin: 0 1.5rem;
+    }
 
     .upper-text {
-      @include lato-font(60px, 400);
+      @include lato-font(3.75rem, 400);
+      @include mobile {
+        @include lato-font(2.25, 400);
+      }
     }
 
     .mid-text {
-      @include lato-font(16px, 400);
+      @include lato-font(1rem, 400);
     }
 
     .lower-text {
       display: flex;
       gap: 14rem;
+      padding-bottom: 2rem;
+
+      @include mobile {
+        flex-direction: column;
+        gap: 2rem;
+      }
 
       .big-text {
-        @include lato-font(60px, 600);
+        @include lato-font(3.75rem, 600);
       }
     }
   }
 
-  .last-box {
-    width: 100vw;
+  .white-box {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    color: #444444;
+    background: #ffffffe5;
 
-    .white-box {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-      height: 360px;
-      background: #fff;
-      .font-cl {
-        @include lato-font(60px, 600);
+    padding: 10rem 0;
+    @include mobile {
+      padding: 4rem 0;
+    }
+    .font-cl {
+      @include lato-font(3.75rem, 600);
+      @include mobile {
+        @include lato-font(2rem, 600);
       }
     }
   }

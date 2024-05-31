@@ -1,30 +1,63 @@
 @import "../../style.scss";
 
 .foot {
-  height: 660px;
+  //height: 41.25rem;
   background: $background2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: #fff;
-  @include lato-font(16px, 600);
+  //padding: 4rem 0;
+  @include lato-font(1rem, 600);
   .upper-box {
     display: flex;
-    justify-content: space-around;
-    height: 346px;
+    justify-content: space-between;
+    margin: 0 12rem;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+      margin: 0 2rem;
+      margin-top: 2rem;
+    }
 
     img {
-      width: 299px;
-      height: 199px;
+      width: 18.6875rem;
+      height: 12.4375rem;
     }
-    .text-box {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      text-align: left;
 
-      p {
-        cursor: pointer;
+    .text-box-container {
+      display: flex;
+      justify-content: space-around;
+      gap: 12rem;
+
+      @include mobile {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 0.5rem;
+        column-gap: 8rem;
+      }
+
+      .text-box {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+        text-align: left;
+        @include mobile {
+          gap: 2rem;
+        }
+
+        p {
+          cursor: pointer;
+        }
+      }
+      #eng {
+        @include mobile {
+          grid-column: 1;
+          grid-column-end: 3;
+          grid-row: 5;
+          text-align: center;
+        }
       }
     }
   }
@@ -32,28 +65,29 @@
   .lower-box {
     display: flex;
     flex-direction: column;
-    //justify-content: start;
+    margin: 0 12rem;
+    justify-content: flex-start;
+    @include mobile {
+      align-items: center;
+      text-align: center;
+      margin: 0 2rem;
+    }
 
     .social-box {
       display: flex;
-      //width: 10%;
       justify-content: start;
       gap: 2rem;
-      margin-left: 8rem;
       margin-top: 2rem;
 
       img {
-        height: 24px;
-        //width: 24px;
+        height: 1.5rem;
       }
     }
 
     .text-box {
       display: flex;
       flex-direction: column;
-      //width: 40%;
       align-items: start;
-      margin-left: 8rem;
     }
   }
 }
