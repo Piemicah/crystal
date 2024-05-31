@@ -9,9 +9,13 @@
   .heading {
     color: $blue;
     @include lato-font(6rem, 600);
+    @include mobile {
+      @include lato-font(3rem, 600);
+    }
   }
   .question {
     @include lato-font(1rem, 400);
+    margin-bottom: 2rem;
   }
 
   form {
@@ -19,16 +23,41 @@
     flex-direction: column;
     align-items: start;
     gap: 2rem;
-    max-width: 18.75rem;
+    //max-width: 18.75rem;
+    box-sizing: border-box;
+    margin: 0 6rem;
 
-    margin: 2rem 0 12rem 0;
+    .form-field {
+      display: flex;
+      flex-direction: column;
 
-    input {
-      padding: 0.2rem 1rem;
+      input {
+        padding: 0.5rem 1rem;
+        border: 1px solid gray;
+        width: 30vw;
+        border-radius: 0.5rem;
+        @include mobile {
+          width: 80vw;
+        }
+      }
+      textarea {
+        width: 30vw;
+        border-radius: 0.6rem;
+        border: 1px solid gray;
+        @include mobile {
+          width: 80vw;
+          padding: 0.5rem 1rem;
+        }
+      }
     }
 
     button {
       @include btn-blue;
+      margin-bottom: 4rem;
+      @include mobile {
+        width: 85vw;
+        padding: 0.5rem 1rem;
+      }
     }
   }
 }

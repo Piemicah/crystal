@@ -11,11 +11,17 @@
   .heading {
     color: $blue;
     @include lato-font(6rem, 600);
+    @include mobile {
+      @include lato-font(3.75rem, 600);
+    }
   }
 
   .mission {
-    width: 70%;
+    width: 70vw;
     @include lato-font(60px, 400);
+    @include mobile {
+      @include lato-font(2rem, 400);
+    }
   }
 
   .stake-holders {
@@ -23,12 +29,20 @@
     flex-direction: column;
     gap: 2rem;
     margin: 6rem 0;
+    @include mobile {
+      margin-top: 2rem;
+    }
     .stake-holder {
       display: flex;
       justify-content: space-around;
-
-      //width: 75%;
       text-align: left;
+
+      @include mobile {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+      }
       .circle {
         background: #868686;
         width: 10rem;
@@ -40,7 +54,7 @@
         display: flex;
         flex-direction: column;
         width: 50%;
-        align-content: space-between;
+
         span {
           @include lato-font(2rem, 400);
         }

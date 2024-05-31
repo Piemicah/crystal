@@ -12,6 +12,9 @@
 
   .heading {
     @include lato-font(3.75rem, 700);
+    @include mobile {
+      @include lato-font(3rem, 700);
+    }
   }
 
   form {
@@ -23,13 +26,23 @@
       display: flex;
       flex-direction: column;
       @include mont-font(1.5rem, 500);
-      width: 35rem;
+      width: 40vw;
+      @include mobile {
+        width: 85vw;
+        @include mont-font(1rem, 500);
+        text-align: left;
+      }
 
       input {
         @include mont-font(1.5rem, 500);
         padding: 0.75rem;
         border-radius: 0.5rem;
         border: 1px solid black;
+        @include mobile {
+          @include mont-font(1rem, 500);
+          padding: 0.5rem;
+          border-radius: 0.35rem;
+        }
       }
     }
     button {

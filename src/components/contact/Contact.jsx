@@ -10,9 +10,21 @@ const Contact = () => {
         Any question? We would be happy to help you.
       </div>
       <form action="">
-        <input type="text" placeholder="Your Comments" />
-        <input type="text" />
-        <input type="text" />
+        <div className="form-field">
+          <label htmlFor="email">Email</label>
+          <input type="email" id="email" placeholder="Email" />
+        </div>
+
+        <div className="form-field">
+          <label htmlFor="nm">Full Name</label>
+          <input type="text" placeholder="Full name" />
+        </div>
+
+        <div className="form-field">
+          <label htmlFor="nm">Message</label>
+          <textarea name="nm" id="nm" cols="30" rows="5"></textarea>
+        </div>
+
         <button>SUBMIT</button>
       </form>
     </div>

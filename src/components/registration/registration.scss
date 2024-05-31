@@ -10,6 +10,9 @@
   .heading {
     color: $blue;
     @include lato-font(3.75rem, 600);
+    @include mobile {
+      @include lato-font(3rem, 600);
+    }
   }
 
   .form-container {
@@ -21,10 +24,18 @@
       display: flex;
       justify-content: center;
       gap: 2rem;
+      @include mobile {
+        flex-direction: column;
+      }
       .info {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
+
+        @include mobile {
+          grid-template-columns: 1fr;
+          width: 90vw;
+        }
 
         .form-field {
           display: flex;
@@ -38,6 +49,11 @@
             border-radius: 0.25rem;
             border: none;
             @include lato-font(1rem, 400);
+          }
+
+          textarea {
+            background: #ecf1f4;
+            border: none;
           }
 
           select {
