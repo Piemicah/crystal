@@ -6,6 +6,8 @@ import { useState } from "react";
 
 const Navbar = () => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
+  const [openStudentMenu, setOpenStudentMenu] = useState(false);
+  const [openStaffMenu, setOpenStaffMenu] = useState(false);
   const navigate = useNavigate();
   return (
     <div className="navbar">
@@ -13,9 +15,41 @@ const Navbar = () => {
         <Link to="/" className="desktop-link-item">
           Home
         </Link>
-        <Link to="/registration" className="desktop-link-item">
-          Registration
-        </Link>
+
+        <div
+          className="desktop-link-item"
+          onClick={() => {
+            setOpenStaffMenu(!openStaffMenu);
+          }}
+        >
+          Staff
+          {openStaffMenu ? (
+            <div className="sub-menu">
+              <Link to="/staff-login" className="sub-menu-item">
+                Login
+              </Link>
+            </div>
+          ) : null}
+        </div>
+
+        <div
+          className="desktop-link-item"
+          onClick={() => {
+            setOpenStudentMenu(!openStudentMenu);
+          }}
+        >
+          Student
+          {openStudentMenu ? (
+            <div className="sub-menu">
+              <Link to="/registration" className="sub-menu-item">
+                Registration
+              </Link>
+              <Link to="/login" className="sub-menu-item">
+                Login
+              </Link>
+            </div>
+          ) : null}
+        </div>
         <Link to="/service" className="desktop-link-item">
           Services
         </Link>

@@ -5,6 +5,7 @@ import { baseUrl } from "../baseUrl";
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
+  //const [auth, setAuth] = useState(false);
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("user")) || null
   );
@@ -13,20 +14,18 @@ export const AuthContextProvider = ({ children }) => {
     localStorage.setItem("user", JSON.stringify(user));
   }, [user]);
 
-  // const login = async (inputs) => {
-  //   const url = baseUrl + "/api/users/login";
-  //   try {
-  //     const result = await axios.post(url, inputs, { withCredentials: true });
+  const login = async (url, info) => {
+    //const url = baseUrl + "/api/students/login";
 
-  //     if (result.data.found) setUser(result.data.username);
-  //   } catch (err) {
-  //     console.log(err.message);
-  //     throw new Error("User not found!");
-  //   }
-  // };
+    const res = await axios.post(url, info, { withCredentials: true });
+
+    if (res.data.Status) setUser(res.data.name);
+
+    return res;
+  };
 
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider value={{ user, login }}>
       {children}
     </AuthContext.Provider>
   );

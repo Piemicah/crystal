@@ -17,6 +17,10 @@
     }
   }
 
+  .message {
+    color: red;
+  }
+
   form {
     display: flex;
     flex-direction: column;
@@ -53,6 +57,7 @@
       border-radius: 0.5rem;
       color: white;
       margin-top: 1.6rem;
+      cursor: pointer;
     }
   }
 }

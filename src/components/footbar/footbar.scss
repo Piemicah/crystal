@@ -1,14 +1,13 @@
 @import "../../style.scss";
 
 .foot {
-  //height: 41.25rem;
   background: $background2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: #fff;
-  //padding: 4rem 0;
   @include lato-font(1rem, 600);
+  padding-top: 4rem;
   .upper-box {
     display: flex;
     justify-content: space-between;
@@ -35,7 +34,7 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         row-gap: 0.5rem;
-        column-gap: 8rem;
+        column-gap: 4rem;
       }
 
       .text-box {

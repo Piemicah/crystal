@@ -21,11 +21,31 @@
     .desktop-link-item {
       text-decoration: none;
       color: #444444;
-      font-family: "Alata", sans-serif;
-      font-size: 1.32rem;
-      font-weight: 400;
+
+      @include lato-font(1.32rem, 400);
+      cursor: pointer;
       @include mobile {
         display: none;
+      }
+
+      .sub-menu {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        background: #3f3e3eb7;
+
+        .sub-menu-item {
+          text-decoration: none;
+          font-size: 1.25rem;
+          color: #ffffff;
+          padding: 0.5rem;
+          border-bottom: 1px solid rgb(214, 211, 211);
+        }
+        :hover {
+          color: #444444;
+          font-size: 1.32rem;
+          background: #f3f3f3;
+        }
       }
     }
 

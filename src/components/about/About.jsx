@@ -1,4 +1,5 @@
 import "./about.scss";
+import picture from "../../assets/nappy.jpg";
 
 import React from "react";
 
@@ -12,7 +13,9 @@ const About = () => {
       </div>
       <div className="stake-holders">
         <div className="stake-holder">
-          <div className="circle"></div>
+          <div className="picture">
+            <img src={picture} alt="" />
+          </div>
           <div className="detail">
             <p>
               <span>Mr Aminu Jimoh Temitope</span>
@@ -26,7 +29,9 @@ const About = () => {
           </div>
         </div>
         <div className="stake-holder">
-          <div className="circle"></div>
+          <div className="picture">
+            <img src={picture} alt="" />
+          </div>
           <div className="detail">
             <p>
               <span>Mr Aminu Jimoh Temitope</span>
@@ -40,7 +45,9 @@ const About = () => {
           </div>
         </div>
         <div className="stake-holder">
-          <div className="circle"></div>
+          <div className="picture">
+            <img src={picture} alt="" />
+          </div>
           <div className="detail">
             <p>
               <span>Mr Aminu Jimoh Temitope</span>
@@ -54,7 +61,9 @@ const About = () => {
           </div>
         </div>
         <div className="stake-holder">
-          <div className="circle"></div>
+          <div className="picture">
+            <img src={picture} alt="" />
+          </div>
           <div className="detail">
             <p>
               <span>Mr Aminu Jimoh Temitope</span>

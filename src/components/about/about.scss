@@ -43,11 +43,13 @@
         text-align: center;
         gap: 1rem;
       }
-      .circle {
-        background: #868686;
-        width: 10rem;
-        height: 10rem;
-        border-radius: 50%;
+      .picture {
+        img {
+          width: 10rem;
+          height: 10rem;
+          border-radius: 50%;
+          object-fit: cover;
+        }
       }
 
       .detail {

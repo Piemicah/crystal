@@ -2,8 +2,12 @@ import "./student.scss";
 
 import React from "react";
 
-const Student = () => {
-  return <div>Student</div>;
+const Student = (props) => {
+  return (
+    <div className="student">
+      <h5>Name: {props.name}</h5>
+    </div>
+  );
 };
 
 export default Student;

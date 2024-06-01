@@ -1,14 +1,13 @@
-import "./login.scss";
-import axios from "axios";
+import "./staffLogin.scss";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/authContext";
 import { useNavigate } from "react-router-dom";
 import { baseUrl } from "../../baseUrl";
 
-const Login = () => {
+const StaffLogin = () => {
   const [info, setInfo] = useState({
     email: "",
-    reg: "",
+    password: "",
   });
 
   const { login } = useContext(AuthContext);
@@ -16,8 +15,6 @@ const Login = () => {
 
   const navigate = useNavigate();
   //axios.defaults.withCredentials = true;
-
-  const auth = useContext(AuthContext);
 
   const handleChange = (e) => {
     setMessage(null);
@@ -27,15 +24,15 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (info.email === "" || info.reg === "") {
+    if (info.email === "" || info.password === "") {
       setMessage("All fields must be filled!");
       return;
     }
 
     try {
-      const url = baseUrl + "/api/students/login";
+      const url = baseUrl + "/api/staff/login";
       const result = await login(url, info);
-      if (result.data.Status) navigate("/portal");
+      if (result.data.Status) navigate("/staff-portal");
       else setMessage(result.data.Error);
     } catch (err) {
       console.log(err.message);
@@ -48,7 +45,7 @@ const Login = () => {
 
   return (
     <div className="login">
-      <div className="heading">STUDENT LOGIN</div>
+      <div className="heading">STAFF LOGIN</div>
       {message && <span className="message">{message}</span>}
       <form id="form" onSubmit={handleSubmit}>
         <div className="form-field">
@@ -62,12 +59,12 @@ const Login = () => {
           />
         </div>
         <div className="form-field">
-          <label htmlFor="reg">Student ID</label>
+          <label htmlFor="reg">Password</label>
           <input
             type="password"
-            id="reg"
-            name="reg"
-            placeholder="Registration no."
+            id="password"
+            name="password"
+            placeholder="Password"
             onChange={handleChange}
           />
         </div>
@@ -79,4 +76,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default StaffLogin;
