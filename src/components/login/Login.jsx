@@ -12,12 +12,11 @@ const Login = () => {
   });
 
   const { login } = useContext(AuthContext);
+
   const [message, setMessage] = useState(null);
 
   const navigate = useNavigate();
   //axios.defaults.withCredentials = true;
-
-  const auth = useContext(AuthContext);
 
   const handleChange = (e) => {
     setMessage(null);
@@ -33,8 +32,7 @@ const Login = () => {
     }
 
     try {
-      const url = baseUrl + "/api/students/login";
-      const result = await login(url, info);
+      const result = await login(info);
       if (result.data.Status) navigate("/portal");
       else setMessage(result.data.Error);
     } catch (err) {

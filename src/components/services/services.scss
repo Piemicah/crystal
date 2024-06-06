@@ -25,6 +25,8 @@
     margin-bottom: 6rem;
     @include mobile {
       padding: 1rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
       @include lato-font(2.25rem, 600);
     }
   }

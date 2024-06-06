@@ -3,10 +3,10 @@ import { AuthContext } from "../../context/authContext";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { baseUrl } from "../../baseUrl";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Portal = () => {
-  const { user } = useContext(AuthContext);
+  const { auth, user } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -29,6 +29,7 @@ const Portal = () => {
     <div>
       <h1>Student Portal</h1>
       <h1>Welcome {user}</h1>
+      {auth && <h1>Authenticated</h1>}
       <button onClick={handleClick}>LogOut</button>
     </div>
   );

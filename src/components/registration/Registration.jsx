@@ -23,7 +23,7 @@ const Registration = () => {
   ]);
 
   useEffect(() => {
-    const url = baseUrl + "/api/students";
+    const url = baseUrl + "/api/students?sort=reg";
     axios
       .get(url)
       .then((res) => {
@@ -117,7 +117,7 @@ const Registration = () => {
   // console.log(person);
   //let p = programs.filter((pp) => pp.progName !== "");
   console.log(programs);
-  // console.log(reg);
+  console.log(reg);
   return (
     <div className="registration">
       <div className="heading">Admission Form</div>

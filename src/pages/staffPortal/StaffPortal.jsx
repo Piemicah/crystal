@@ -7,7 +7,7 @@ import { baseUrl } from "../../baseUrl";
 import React, { useContext } from "react";
 
 const StaffPortal = () => {
-  const { user } = useContext(AuthContext);
+  const { staff } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -28,7 +28,7 @@ const StaffPortal = () => {
   return (
     <div>
       <h1>Staff Portal</h1>
-      <h2>Welcome {user}</h2>
+      <h2>Welcome {staff}</h2>
       <button onClick={handleClick}>Logout</button>
       <button
         onClick={() => {

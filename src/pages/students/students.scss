@@ -1,0 +1,66 @@
+@import "../../style.scss";
+
+.students {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+
+  .heading {
+    color: black;
+    @include lato-font(3.75rem, 600);
+    @include mobile {
+      @include lato-font(3rem, 600);
+    }
+  }
+
+  select {
+    background: #b4b4b4;
+    padding: 0.25rem;
+    border-radius: 1rem;
+    border: 1px solid rgb(187, 184, 184);
+    @include lato-font(1rem, 400);
+  }
+
+  .headers {
+    display: flex;
+    width: 60vw;
+    justify-content: space-between;
+    @include lato-font(1.15rem, 600);
+  }
+
+  .detail-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 4rem;
+    @include lato-font(1rem, 400);
+
+    .detail {
+      display: flex;
+      width: 60vw;
+      justify-content: space-between;
+      border-bottom: 1px solid gray;
+      padding-bottom: 0.25rem;
+
+      @include mobile {
+        width: 90vw;
+      }
+
+      .name {
+        width: 20vw;
+
+        .nm {
+          cursor: pointer;
+        }
+      }
+
+      .programs {
+        display: flex;
+        flex-direction: column;
+        width: 20vw;
+      }
+    }
+  }
+}

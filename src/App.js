@@ -13,9 +13,11 @@ import { useContext } from "react";
 import { AuthContext } from "./context/authContext";
 import StaffLogin from "./components/staff/StaffLogin";
 import StaffPortal from "./pages/staffPortal/StaffPortal";
+import ProtectedRoutes from "./ProtectedRoutes";
+import Student from "./components/student/Student";
 
 function App() {
-  const { user } = useContext(AuthContext);
+  const { user, staff, auth } = useContext(AuthContext);
   return (
     <div className="App">
       <Navbar />
@@ -27,13 +29,17 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/students" element={<Students />} />
-        <Route path="/portal" element={user ? <Portal /> : <Home />} />
-        <Route path="/staff-login" element={<StaffLogin />} />
+
         <Route
-          path="/staff-portal"
-          element={user ? <StaffPortal /> : <Home />}
+          path="/portal"
+          element={auth ? <Portal /> : <Navigate to="/login" />}
         />
+        <Route path="/staff-login" element={<StaffLogin />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/students" element={<Students />} />
+          <Route path="/staff-portal" element={<StaffPortal />} />
+        </Route>
+        <Route path="/students/:reg" element={<Student />} />
       </Routes>
       {<Footbar />}
     </div>

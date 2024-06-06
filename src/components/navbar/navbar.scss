@@ -96,6 +96,28 @@
       background: #f3f3f3;
       text-align: center;
       padding: 2rem 3rem;
+      width: 6rem;
+      height: 2rem;
+      border-bottom: 1px solid black;
+
+      .sub-menu-mobile {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        background: rgba(128, 128, 128, 0.815);
+        left: 5.5rem;
+        top: -1rem;
+        text-align: left;
+        width: fit-content;
+
+        .sub-menu-item {
+          text-decoration: none;
+          font-size: 1.2rem;
+          color: #ffffff;
+          padding: 0.35rem;
+          border-bottom: 1px solid rgb(214, 211, 211);
+        }
+      }
     }
   }
 }

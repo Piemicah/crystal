@@ -10,7 +10,7 @@ const StaffLogin = () => {
     password: "",
   });
 
-  const { login } = useContext(AuthContext);
+  const { login2 } = useContext(AuthContext);
   const [message, setMessage] = useState(null);
 
   const navigate = useNavigate();
@@ -30,8 +30,7 @@ const StaffLogin = () => {
     }
 
     try {
-      const url = baseUrl + "/api/staff/login";
-      const result = await login(url, info);
+      const result = await login2(info);
       if (result.data.Status) navigate("/staff-portal");
       else setMessage(result.data.Error);
     } catch (err) {
