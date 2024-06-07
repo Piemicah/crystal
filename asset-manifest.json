@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/crystal/static/css/main.bba19e56.css",
-    "main.js": "/crystal/static/js/main.d2f10862.js",
+    "main.css": "/crystal/static/css/main.f5b78d92.css",
+    "main.js": "/crystal/static/js/main.f755b147.js",
     "static/media/logoCrystal.png": "/crystal/static/media/logoCrystal.7c5c581d5e65c5541727.png",
     "static/media/backImg.jpg": "/crystal/static/media/backImg.91ea78a1286452c81122.jpg",
     "static/media/nappy.jpg": "/crystal/static/media/nappy.9e9c6fbd35c782f00ce6.jpg",
     "index.html": "/crystal/index.html",
-    "main.bba19e56.css.map": "/crystal/static/css/main.bba19e56.css.map",
-    "main.d2f10862.js.map": "/crystal/static/js/main.d2f10862.js.map"
+    "main.f5b78d92.css.map": "/crystal/static/css/main.f5b78d92.css.map",
+    "main.f755b147.js.map": "/crystal/static/js/main.f755b147.js.map"
   },
   "entrypoints": [
-    "static/css/main.bba19e56.css",
-    "static/js/main.d2f10862.js"
+    "static/css/main.f5b78d92.css",
+    "static/js/main.f755b147.js"
   ]
 }
