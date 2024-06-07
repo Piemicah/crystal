@@ -1,0 +1,20 @@
+@import "../../style.scss";
+
+.navbar-student {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  padding: 0 2rem;
+  background: gray;
+  .left {
+    display: flex;
+    gap: 2rem;
+  }
+
+  span {
+    color: white;
+    @include lato-font(1.2rem, 600);
+    cursor: pointer;
+  }
+}

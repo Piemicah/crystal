@@ -2,12 +2,12 @@ import { useParams } from "react-router-dom";
 import "./student.scss";
 import { baseUrl } from "./../../baseUrl";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import moment from "moment";
 import pic from "../../assets/nappy.jpg";
 
-const Student = (info) => {
-  const { reg } = useParams();
+const Student = React.forwardRef(({ reg }, ref) => {
+  const { regFromStaff } = useParams();
   const [student, setStudent] = useState({});
 
   useEffect(() => {
@@ -25,9 +25,9 @@ const Student = (info) => {
 
     fetchStudent();
   }, []);
-
+  console.log(regFromStaff);
   return (
-    <div className="student">
+    <div ref={ref} className="student">
       <div className="container">
         <div className="picture">
           <img src={pic} alt="picture" />
@@ -128,6 +128,6 @@ const Student = (info) => {
       </div>
     </div>
   );
-};
+});
 
 export default Student;

@@ -36,10 +36,8 @@ function App() {
         />
         <Route path="/staff-login" element={<StaffLogin />} />
         <Route element={<ProtectedRoutes />}>
-          <Route path="/students" element={<Students />} />
           <Route path="/staff-portal" element={<StaffPortal />} />
         </Route>
-        <Route path="/students/:reg" element={<Student />} />
       </Routes>
       {<Footbar />}
     </div>

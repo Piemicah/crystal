@@ -4,14 +4,20 @@ import "./staffPortal.scss";
 import axios from "axios";
 import { baseUrl } from "../../baseUrl";
 
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import Students from "../students/Students";
+import Student from "../../components/student/Student";
 
 const StaffPortal = () => {
   const { staff } = useContext(AuthContext);
+  const [showList, setShowList] = useState(false);
+  const [reg, setReg] = useState();
+  const [showDetail, setShowDetail] = useState(false);
+  const [showEmpty, setShowEmpty] = useState(true);
 
   const navigate = useNavigate();
 
-  const handleClick = async (e) => {
+  const handleLogout = async (e) => {
     const url = baseUrl + "/api/staff/logout";
     try {
       const result = await axios.get(url, { withCredentials: true });
@@ -25,18 +31,39 @@ const StaffPortal = () => {
       console.log(err.message);
     }
   };
+  const handleList = () => {
+    setShowList(true);
+    setShowDetail(false);
+    setShowEmpty(false);
+  };
+  console.log({ reg });
+  console.log({ showList });
+  console.log({ showDetail });
+
   return (
     <div>
-      <h1>Staff Portal</h1>
-      <h2>Welcome {staff}</h2>
-      <button onClick={handleClick}>Logout</button>
-      <button
-        onClick={() => {
-          navigate("/students");
-        }}
-      >
-        List
-      </button>
+      <div className="navbar-staff">
+        <div className="left">
+          <span onClick={handleList}>Students' List</span>
+        </div>
+        <div className="middle">
+          <span>Logged in as: {staff}</span>
+        </div>
+        <div className="right">
+          <span onClick={handleLogout}>Logout</span>
+        </div>
+      </div>
+      {showEmpty ? <div className="sidebar"></div> : null}
+
+      {showList ? (
+        <Students
+          setReg={setReg}
+          setShowDetail={setShowDetail}
+          setShowList={setShowList}
+          setShowEmpty={setShowEmpty}
+        />
+      ) : null}
+      {showDetail ? <Student reg={reg} /> : null}
     </div>
   );
 };

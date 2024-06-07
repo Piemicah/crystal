@@ -16,6 +16,7 @@ export const AuthContextProvider = ({ children }) => {
   const [staff, setStaff] = useState(
     JSON.parse(localStorage.getItem("staff")) || null
   );
+  const [reg, setReg] = useState("");
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(user));
   }, [user]);
@@ -50,6 +51,7 @@ export const AuthContextProvider = ({ children }) => {
     if (res.data.Status) {
       setUser(res.data.name);
       setToken(res.data.token);
+      setReg(res.data.reg);
       await authenticate(res.data.token);
     }
 
@@ -70,7 +72,9 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ auth, user, token, staff, login, login2 }}>
+    <AuthContext.Provider
+      value={{ auth, user, token, staff, reg, login, login2 }}
+    >
       {children}
     </AuthContext.Provider>
   );

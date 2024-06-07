@@ -124,14 +124,14 @@ const Navbar = () => {
       </div>
 
       <div className="right">
-        <button
+        {/* <button
           className="sign-btn"
           onClick={(e) => {
             navigate("/login");
           }}
         >
           SIGN IN
-        </button>
+        </button> */}
       </div>
     </div>
   );

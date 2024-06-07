@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const Students = () => {
+const Students = (props) => {
   const [students, setStudents] = useState([]);
   const [filter, setFilter] = useState(
     `'IJ' OR c.progId='CA' OR c.progId='JU'`
@@ -30,33 +30,6 @@ const Students = () => {
     fetchStudents();
   }, [filter]);
 
-  // const {
-  //   data: students,
-  //   error,
-  //   isLoading,
-  // } = useQuery({
-  //   queryKey: ["students"],
-  //   queryFn: async () => {
-  //     return axios
-  //       .get(baseUrl + "/api/students?sort=reg")
-  //       .then((res) => res.data);
-  //   },
-  // });
-
-  // const { mutate, isError, isPending, isSuccess } = useMutation({
-  //   mutationFn: (id) => {
-  //     const url = baseUrl + "/api/students/" + id;
-  //     return axios.delete(url);
-  //   },
-  //   onSuccess: () => {
-  //     //invalidate and refresh data
-  //     queryClient.invalidateQueries({ queryKey: ["students"] });
-  //   },
-  // });
-
-  // if (error || isError) return <div>There was an error</div>;
-  // if (isLoading || isPending) return <div>Loading...</div>;
-
   const getName = (prog) => {
     switch (prog) {
       case "IJ":
@@ -75,17 +48,14 @@ const Students = () => {
 
   const handleFilter = (e) => {
     setFilter(e.target.value);
-    console.log(filter);
   };
-
-  console.log(students);
 
   return (
     <div className="students">
       <div className="heading">STUDENTS' LIST</div>
       <div className="filter">
         <select name="filter" id="filter" onClick={handleFilter}>
-          <option>Filter By</option>
+          {/* <option>Filter By</option> */}
           <option value="'IJ' OR c.progId='CA' OR c.progId='JU'">All</option>
           <option value="'IJ'">IJMBE</option>
           <option value="'JU'">JUPEB</option>
@@ -105,7 +75,11 @@ const Students = () => {
               <span
                 className="nm"
                 onClick={() => {
-                  navigate("/students/" + student?.reg);
+                  //navigate("/students/" + student?.reg);
+                  props.setReg(student?.reg);
+                  props.setShowList(false);
+                  props.setShowDetail(true);
+                  props.setShowEmpty(false);
                 }}
               >
                 {student?.sname} {student?.fname}

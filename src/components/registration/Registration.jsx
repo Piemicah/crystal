@@ -11,7 +11,7 @@ const Registration = () => {
   const [isIjmb, setIsIjmb] = useState(false);
   const [isJupeb, setIsJupeb] = useState(false);
   const [isCais, setIsCais] = useState(false);
-  const [stateId, setStateId] = useState("AB");
+  const [message, setMessage] = useState(null);
   const [lgEnabled, setLgEnabled] = useState(false);
   const [lgas, setLgas] = useState([]);
   const [reg, setReg] = useState("");
@@ -23,7 +23,9 @@ const Registration = () => {
   ]);
 
   useEffect(() => {
-    const url = baseUrl + "/api/students?sort=reg";
+    const url =
+      baseUrl +
+      "/api/students?filter='IJ' OR c.progId='CA' OR c.progId='JU' ORDER BY reg";
     axios
       .get(url)
       .then((res) => {
@@ -36,14 +38,15 @@ const Registration = () => {
       })
       .catch((er) => {
         console.log(er.message);
-        // setMessage("All fields must be filled");
+        //setMessage("All fields must be filled");
       });
   }, []);
   const handleChange = (e) => {
     setPerson({ ...person, [e.target.name]: e.target.value });
-    //setMessage(null);
+    setMessage(null);
   };
 
+  //subject combination codes
   const combination = async () => {
     const program = programs.filter((pp) => pp.progName !== "");
 
@@ -61,7 +64,30 @@ const Registration = () => {
         .then((res) => res.data)
         .catch((er) => {
           console.log(er.message);
-          // setMessage("All fields must be filled");
+          setMessage("All fields must be filled");
+        });
+    });
+  };
+
+  //payment codes
+  const payment = async () => {
+    const program = programs.filter((pp) => pp.progName !== "");
+
+    const url = baseUrl + "/api/payments";
+    program.forEach((p) => {
+      const pay = {
+        reg,
+        progId: p.progName,
+        pay1: 0,
+        pay2: 0,
+        pay3: 0,
+      };
+      axios
+        .post(url, pay)
+        .then((res) => res.data)
+        .catch((er) => {
+          //console.log(er.message);
+          setMessage("All fields must be filled");
         });
     });
   };
@@ -83,7 +109,10 @@ const Registration = () => {
         person.progid2 = p[1].progName;
         person.progid3 = p[2].progName;
       }
-    } else return;
+    } else {
+      setMessage("You must select at least 1 program");
+      return;
+    }
 
     person.reg = reg;
     const url = baseUrl + "/api/students";
@@ -91,11 +120,12 @@ const Registration = () => {
       .post(url, person)
       .then((res) => res.data)
       .catch((er) => {
-        console.log(er.message);
-        // setMessage("All fields must be filled");
+        //console.log(er.message);
+        setMessage("All fields must be filled");
       });
 
     setTimeout(combination, 1000);
+    setTimeout(payment, 1000);
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -105,7 +135,7 @@ const Registration = () => {
     //else update();
 
     //setFile(null);
-    //setPerson({});
+    setPerson({});
   };
 
   const subSelect = (e) => {
@@ -114,13 +144,12 @@ const Registration = () => {
     setPrograms(programs);
   };
 
-  // console.log(person);
-  //let p = programs.filter((pp) => pp.progName !== "");
   console.log(programs);
   console.log(reg);
   return (
     <div className="registration">
       <div className="heading">Admission Form</div>
+      {message && <p className="message">*{message}</p>}
       <div className="form-container">
         <form id="form" onSubmit={handleSubmit}>
           <div className="info">
@@ -208,8 +237,6 @@ const Registration = () => {
                 id="state"
                 //value={person.stateId}
                 onChange={(e) => {
-                  //person.stateId = e.target.value;
-                  setStateId(e.target.value);
                   setLgas(lga.filter((l) => l.stateId === e.target.value));
                   setLgEnabled(true);
                 }}
@@ -326,6 +353,7 @@ const Registration = () => {
                   setIndex(0);
                   programs[0].progName = !isIjmb ? e.target.value : "";
                   setPrograms(programs);
+                  setMessage(null);
                 }}
               />
               <label htmlFor="IJ">IJMBE</label>
@@ -372,6 +400,7 @@ const Registration = () => {
                   setIndex(1);
                   programs[1].progName = !isJupeb ? e.target.value : "";
                   setPrograms(programs);
+                  setMessage(null);
                 }}
               />
               <label htmlFor="JU">JUPEB</label>
@@ -418,6 +447,7 @@ const Registration = () => {
                   setIndex(2);
                   programs[2].progName = !isCais ? e.target.value : "";
                   setPrograms(programs);
+                  setMessage(null);
                 }}
               />
               <label htmlFor="CA">CAIS KWASU</label>
