@@ -1,14 +1,18 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import { baseUrl } from "../baseUrl";
+import { jwtDecode } from "jwt-decode";
 
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
+  const [accessToken, setAccessToken] = useState(
+    localStorage.getItem("accessToken") || null
+  );
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("user")) || null
   );
-  const [token, setToken] = useState("");
+  const [refreshToken, setRefreshToken] = useState();
   const [auth, setAuth] = useState(
     JSON.parse(localStorage.getItem("auth")) || false
   );
@@ -16,7 +20,7 @@ export const AuthContextProvider = ({ children }) => {
   const [staff, setStaff] = useState(
     JSON.parse(localStorage.getItem("staff")) || null
   );
-  const [reg, setReg] = useState("");
+  const [reg, setReg] = useState(localStorage.getItem("reg") || null);
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(user));
   }, [user]);
@@ -26,8 +30,16 @@ export const AuthContextProvider = ({ children }) => {
   }, [auth]);
 
   useEffect(() => {
+    localStorage.setItem("accessToken", accessToken);
+  }, [accessToken]);
+
+  useEffect(() => {
     localStorage.setItem("staff", JSON.stringify(staff));
   }, [staff]);
+
+  useEffect(() => {
+    localStorage.setItem("reg", reg);
+  }, [reg]);
   const authenticate = async (tk) => {
     const url = baseUrl + "/api/users/auth";
     try {
@@ -50,9 +62,9 @@ export const AuthContextProvider = ({ children }) => {
 
     if (res.data.Status) {
       setUser(res.data.name);
-      setToken(res.data.token);
+      //setToken(res.data.token);
       setReg(res.data.reg);
-      await authenticate(res.data.token);
+      await authenticate(res.data.accessToken);
     }
 
     return res;
@@ -62,10 +74,10 @@ export const AuthContextProvider = ({ children }) => {
     const url = baseUrl + "/api/staff/login";
 
     const res = await axios.post(url, info, { withCredentials: true });
-    console.log(res.data);
     if (res.data.Status) {
       setStaff(res.data.name);
-      //setToken(res.data.token);
+      setRefreshToken(res.data.refreshToken);
+      setAccessToken(res.data.accessToken);
     }
 
     return res;
@@ -73,7 +85,16 @@ export const AuthContextProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ auth, user, token, staff, reg, login, login2 }}
+      value={{
+        auth,
+        user,
+        accessToken,
+        refreshToken,
+        staff,
+        reg,
+        login,
+        login2,
+      }}
     >
       {children}
     </AuthContext.Provider>

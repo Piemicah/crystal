@@ -1,8 +1,5 @@
-import Student from "../../components/student/Student";
 import "./students.scss";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { baseUrl } from "../../baseUrl";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -12,9 +9,6 @@ const Students = (props) => {
     `'IJ' OR c.progId='CA' OR c.progId='JU'`
   );
   axios.defaults.withCredentials = true;
-  const navigate = useNavigate();
-  const queryClient = useQueryClient();
-
   useEffect(() => {
     const fetchStudents = async () => {
       const url = baseUrl + "/api/students?filter=";
@@ -29,22 +23,6 @@ const Students = (props) => {
     };
     fetchStudents();
   }, [filter]);
-
-  const getName = (prog) => {
-    switch (prog) {
-      case "IJ":
-        return "IJMBE";
-        break;
-      case "JU":
-        return "JUPEB";
-        break;
-      case "CA":
-        return "CAILS";
-        break;
-      default:
-        return null;
-    }
-  };
 
   const handleFilter = (e) => {
     setFilter(e.target.value);
@@ -76,21 +54,26 @@ const Students = (props) => {
                 className="nm"
                 onClick={() => {
                   //navigate("/students/" + student?.reg);
-                  props.setReg(student?.reg);
+                  props.setReg(student.bio?.reg);
                   props.setShowList(false);
                   props.setShowDetail(true);
                   props.setShowEmpty(false);
+                  props.setShowEditButton(true);
                 }}
               >
-                {student?.sname} {student?.fname}
+                {student.bio?.sname} {student.bio?.fname}
               </span>
             </div>
             <div className="programs">
-              <div>{getName(student?.progid1)}</div>
-              <div>{getName(student?.progid2)}</div>
-              <div>{getName(student?.progid3)}</div>
+              {student.payment?.map((p) => (
+                <div>{p.Program}</div>
+              ))}
             </div>
-            <div className="balance">0</div>
+            <div className="balance">
+              {student.payment?.map((p) => (
+                <div>{p.balance}</div>
+              ))}
+            </div>
           </div>
         ))}
       </div>

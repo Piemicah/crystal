@@ -30,7 +30,7 @@ const Student = React.forwardRef(({ reg }, ref) => {
     <div ref={ref} className="student">
       <div className="container">
         <div className="picture">
-          <img src={pic} alt="picture" />
+          <img src={student.bios?.picture} alt="picture" />
           {reg}
         </div>
         <div className="heading">BASIC INFORMATION</div>

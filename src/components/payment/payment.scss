@@ -1,0 +1,72 @@
+@import "../../style.scss";
+
+.payment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  .heading {
+    @include lato-font(3.75rem, 700);
+    @include mobile {
+      @include lato-font(3rem, 700);
+    }
+  }
+
+  .programs {
+    display: flex;
+    justify-content: space-between;
+    width: 50vw;
+    margin-bottom: 4rem;
+
+    @include mobile {
+      width: 90vw;
+    }
+
+    .program {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      span {
+        @include lato-font(1.5rem, 600);
+      }
+
+      button {
+        @include btn-blue;
+      }
+    }
+  }
+
+  .paystack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 4rem;
+
+    form {
+      .form-field {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        @include lato-font(1.2rem, 600);
+        input {
+          background: #ecf1f4;
+          padding: 0.45rem 0.5rem;
+          border-radius: 0.25rem;
+          //border: none;
+        }
+      }
+    }
+
+    button {
+      background: $blue;
+      padding: 1rem 0;
+      border-radius: 0.5rem;
+      border: none;
+      @include lato-font(1.25rem, 600);
+      color: white;
+    }
+  }
+}

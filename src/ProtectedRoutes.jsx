@@ -3,7 +3,7 @@ import { Navigate, Outlet, Route } from "react-router-dom";
 import { AuthContext } from "./context/authContext";
 
 const ProtectedRoutes = () => {
-  const { staff } = useContext(AuthContext);
+  const { staff, accessToken } = useContext(AuthContext);
   return !staff ? <Navigate to="/staff-login" /> : <Outlet />;
 };
 

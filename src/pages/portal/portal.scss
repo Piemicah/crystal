@@ -7,6 +7,10 @@
   height: 4rem;
   padding: 0 2rem;
   background: gray;
+
+  @include mobile {
+    height: 3rem;
+  }
   .left {
     display: flex;
     gap: 2rem;
@@ -16,5 +20,9 @@
     color: white;
     @include lato-font(1.2rem, 600);
     cursor: pointer;
+
+    @include mobile {
+      @include lato-font(1rem, 600);
+    }
   }
 }

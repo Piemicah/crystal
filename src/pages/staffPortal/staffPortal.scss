@@ -8,6 +8,10 @@
   padding: 0 2rem;
   background: $blue;
 
+  @include mobile {
+    height: 3rem;
+  }
+
   span {
     color: white;
     @include lato-font(1.2rem, 600);
@@ -20,5 +24,19 @@
   left: 0;
   right: 0;
   height: calc(100vh - 4rem);
-  background: gray;
+  background: lightgray;
+}
+
+.edit {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 1.5rem;
+  button {
+    @include btn-blue;
+  }
+
+  .btn-del {
+    background-color: firebrick;
+  }
 }
